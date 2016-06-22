@@ -5,19 +5,26 @@
         <meta charset="utf-8">
 		<style>
 			* { margin:0; padding:0; box-sizing:border-box; }
+			p { margin-bottom:20px; }
 			body { font-family:Arial,Helvetica,sans-serif; font-size:14px; color:#333; background-color:#eee; }
 			div.container { width:640px; margin:40px auto 20px; padding:30px 20px; background-color:#fff; border-radius:3px; box-shadow:1px 1px 1px #ccc; }
-			h1 { margin-bottom:20px; font-size:20px; line-height:40px; border-bottom:1px solid; }
+			h1 { margin-bottom:20px; font-size:20px; line-height:30px; }
+			p.description { color:#666; line-height:20px; }
+			div.input-area { margin-bottom:20px; }
 			input[type=text] { width:490px; border:1px solid #ddd; border-radius:3px; padding:10px 8px; outline:none; }
 			input[type=button] { width:100px; padding:11px 20px; background:#00a706; border:none; border-radius:3px; color:#fff;	font-weight:700; letter-spacing:0.3px; cursor:pointer; outline:none; float:right; }
-			p#sonuc { margin-top:20px; height:30px; line-height:30px; }
+			p#sonuc { height:30px; line-height:30px; font-size:16px; }
+			p.extra { font-size:12px; line-height:20px; color:#666; font-style:italic; }
 		</style>
     </head>
     <body>
 		<div class="container">
 			<h1>Javascript ile Büyük Ünlü Uyumu Sorgulama</h1>
-			<input type="text" placeholder="Sorgulamak istediğiniz kelimeyi yazınız" id="kelime">
-			<input type="button" onclick="buyukUnluUyumu();" value="Sorgula">
+			<p class="description">Bir kelimenin birinci hecesinde kalın bir ünlü (a, ı, o, u) bulunuyorsa diğer hecelerdeki ünlüler de kalın, ince bir ünlü (e, i, ö, ü) bulunuyorsa diğer hecelerdeki ünlüler de ince olur: adım, ayak, boyunduruk, burun, dalga, dudak, kırlangıç; beşik, bilezik, gelincik, gözlük, üzengi, vergi, yüzük vb.</p>
+			<div class="input-area">
+				<input type="text" placeholder="Sorgulamak istediğiniz kelimeyi yazınız" id="kelime">
+				<input type="button" onclick="buyukUnluUyumu();" value="Sorgula">
+			</div>
 			<p id="sonuc"></p>
 			<script type="text/javascript">
 				document.querySelector("#kelime").focus();
@@ -56,6 +63,15 @@
 					}
 				}
 			</script>
+			<p class="extra">Büyük ünlü uyumuna aykırı olan Türkçe kelimeler de var­dır: anne, dahi, elma, hangi, hani, inanmak, kardeş, şişman vb.</p>
+			<p class="extra">Alıntı kelimelerde büyük ünlü uyumu aranmaz: ahenk, badem, ceylan, çiroz, dükkân, fidan, gazete, hamsi, kestane, limon, model, nişasta, otomatik, pehlivan, selam, tiyatro, viraj, ziyaret vb.</p>
+			<p class="extra">Bitişik yazılan birleşik kelimelerde büyük ünlü uyumu aranmaz: açıkgöz, bilgisayar, çekyat, hanımeli vb.</p>
+			<p class="extra">-gil, -ken, -leyin, -mtırak, -yor ekleri büyük ünlü uyumuna uymaz: akşam-leyin, bakla-­gil-ler, çalışır-ken, ekşi-mtırak, yürü-yor vb.</p>
+			<p class="extra">-daş (-taş) eki bazı kelimelerde büyük ünlü uyumuna uymaz: din-daş, gönül-daş, meslek-taş, ülkü-daş vb.</p>
+			<p class="extra">-ki aitlik eki büyük ünlü uyumuna uymaz: akşamki, duvardaki, karşıki, onunki, yarınki, yoldaki vb.</p>
+			<p class="extra">Büyük ünlü uyumuna girmeyen kelimelere gelen ekler, kalınlık incelik bakımından son hecenin ünlüsüne uyar: adalet-li, anne-si, kardeş-lik, meslektaş-ımız, şişman-lık vb.</p>
+			<p class="extra">Bazı alıntı kelimelerde ekler bu uyuma girmez: idrak-i, meçhul-e, mentol-de, sembol-ler vb.</p>
+			<p class="extra">Son ünlüleri kalın sıradan olmasına karşın son sesleri ince söylenen bazı alıntı kelimeler ince ünlülü ekler alır: alkol / alkolü, hakikat / hakikati, helal / helalimiz, idrak / idrakimiz, kabul / kabulü, kontrol / kontrolü, protokol / protokole, saat / saate, sadakat / sa­dakati, santral / santraller vb.</p>
 		</div>
     </body>
 </html>
