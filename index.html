@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Büyük Ünlü Uyumu Uygulaması</title>
+        <meta charset="utf-8">
+		<style>
+			* { margin:0; padding:0; box-sizing:border-box; }
+			body { font-family:Arial,Helvetica,sans-serif; font-size:14px; color:#333; background-color:#eee; }
+			div.container { width:640px; margin:40px auto 20px; padding:30px 20px; background-color:#fff; border-radius:3px; box-shadow:1px 1px 1px #ccc; }
+			h1 { margin-bottom:20px; font-size:20px; line-height:40px; border-bottom:1px solid; }
+			input[type=text] { width:490px; border:1px solid #ddd; border-radius:3px; padding:10px 8px; outline:none; }
+			input[type=button] { width:100px; padding:11px 20px; background:#00a706; border:none; border-radius:3px; color:#fff;	font-weight:700; letter-spacing:0.3px; cursor:pointer; outline:none; float:right; }
+			p#sonuc { margin-top:20px; height:30px; line-height:30px; }
+		</style>
+    </head>
+    <body>
+		<div class="container">
+			<h1>Javascript ile Büyük Ünlü Uyumu Sorgulama</h1>
+			<input type="text" placeholder="Sorgulamak istediğiniz kelimeyi yazınız" id="kelime">
+			<input type="button" onclick="buyukUnluUyumu();" value="Sorgula">
+			<p id="sonuc"></p>
+			<script type="text/javascript">
+				document.querySelector("#kelime").focus();
+				buyukUnluUyumu = function() {
+					var ince = ["e", "i", "ö", "ü"];
+					var kalin = ["a", "ı", "o", "u"];
+					var p1 = document.querySelector("#kelime").value;
+					var p2 = document.querySelector("#sonuc");
+					var x = p1.split("");
+					var x2 = x.length;
+					if (x2 === 0) {
+						p2.innerHTML = "<span style='color:red;'>Lütfen bir kelime giriniz.</span>";
+					}
+					else {
+						var y = "";
+						for (i = 0 ; i < x.length ; i++) {
+							var y = x[i];
+							var y1 = ince.indexOf(y);
+							var y2 = kalin.indexOf(y);
+							if (y1 != -1) {
+								var a = true;
+							}
+							if(y2 != -1) {
+								var b = true;
+							}
+						}
+						if (a === true && b === true) {
+							p2.innerHTML = "<span style='color:red;'>Bu kelime büyük ünlü uyumuna uygun değildir : <b>" + p1 + "</b></span>";
+							document.querySelector("#kelime").value = "";
+							document.querySelector("#kelime").focus();
+						} else {
+							p2.innerHTML = "<span style='color:green;'>Bu kelime büyük ünlü uyumuna uygundur : <b>" + p1 + "</b></span>";
+							document.querySelector("#kelime").value = "";
+							document.querySelector("#kelime").focus();
+						}
+					}
+				}
+			</script>
+		</div>
+    </body>
+</html>
